@@ -1,0 +1,155 @@
+Árvore - Definição
+Nó raiz, com sub-árvores como filhos
+
+  Árvore Binária - Custo log(n)
+        - 
+       ( ) Nó raiz
+      /   \
+    ( )   ( ) Sub-Árvores / Ramo
+   /   \
+ ( )   ( ) Nó ramo
+          \
+          ( ) Nó folha
+    
+    Cada nó tem 0, 1 ou 2 filhos
+    
+     -
+    (R) Nó raiz
+   /   \
+ (E)   (D) Sub-Árvores
+  |      \Filho direito 
+  \Filho esquerdo 
+  
+  Se anda na árvore de cima pra baixo
+  Longitude de um caminho na árvore é n-1
+  Altura de uma árvore binária é a longitude do maior caminho mais um (maiorCaminho+1)
+  Peso da árvore soma dos pesos da sub-árvore mais um, recursivamente
+  Ponto de parada recursiva para árvore é o ramo ser na verdade uma folha (árvore vazia ou somente com um nó)
+  
+  Árvore Binária completa é quando os elementos internos (ramos e não folhas) possuem as duas sub-árvores
+  
+  Árvore cheia e balanceada
+     -
+    (R)   Nível 0
+   /   \
+ (E)   (D)  Nível 1 
+ 
+ Altura dois, altura é o número de nós no maior caminho
+ 
+ n = 2^h -1
+ n = 2^2 - 1 = 3
+ n = 3 -> Número de elementos na árvore
+ 
+ complexidade de algoritmo - pior caso de uma árvore binária:
+  A altura é igual ao número de comparações numa árvore
+  Altura da árvore é proporcional a log(n), sendo n o número de elementos na árvore
+  log(n) => pois a árvore é binária
+    2
+  Ou seja a base: 2 elevada a um número: x que dá como resultado o número de elementos na árvore: n
+  
+  log(7) => 7 = 2^x = 2,80
+    2
+  
+  log(8) => 8 = 2^x = 3
+    2
+    
+  piso[2,80] = 2 //usar na árvore binária
+  teto[2,80] = 3
+  
+  * O número de comparações numa árvore binária é igual a sua altura
+  
+  Ordenação na árvore // Árvore de busca
+            --
+           (20)
+          /    \
+      (10)      (30)
+      /  \      /  \
+    (5)  (15)(25)  (35)
+             /
+          (22)
+          
+  * Fazer um contador para cada verificação na árvore em busca de um elemento para fazer estudo sobre
+    a complexidade de algoritmo na árvore binária
+    
+  Duas árvores são iguais se são vazias ou tem os mesmos elementos nas mesmas posições
+    
+  Funções do Tad -> slide(Apresentação da pa...)
+  
+  Arbin inicArbin(void);
+  
+  Arbin dirArbin(Arbin arv);
+  
+  Arbin esqArbin(Arbin arv);
+  
+  TipoA raizArbin(Arbin arv);
+  
+  void destruirArbin(Arbin arv);
+  
+  
+  função recursiva de exclusão da árvore:
+  
+  void deletaArvore(Arbin arv){ //Teoricamente
+    if(!isVazia(arv)){ //A ideia antes era isRamo(arv) que retornava true se fosse um ramo
+      deletaArvore(esqArbin(arv));
+      deletaArvore(dirArbin(arv));
+    }
+    free(arv);
+  }
+  
+  int isVazia(Arbin arv){
+    if(arv == NULL)
+      return 1;
+    else
+      return 0;
+  }
+  
+  int estaArbin(Arbin arv, TipoA elem){ //está na árvore? -> O(log (n))
+    if(isVazia(arv))
+      return 0;
+    else if(raizArbin(arv) == elem)
+      return 1;
+    else{
+      estaArbin(esqArbin(arv), elem);
+      estaArbin(dirArbin(arv), elem);
+    }
+  }
+  
+  int pesoArbin(Arbin arv){ //conta elementos na árvore -> O(n)
+    if(isVazia(arv))
+      return 0;
+    else{
+      return 1 + pesoArbin(esqArbin(arv)) + pesoArbin(dirArbin(arv));
+    }
+  }
+  
+  int contaFolhaArbin(Arbin arv){ //conta elementos na árvore -> O(n)
+    if(isVazia(arv))
+      return 0;
+    else if(isVazia(esqArbin(arv)) && isVazia(dirArbin(arv)))
+      return 1;
+    else
+      return contaFolhaArbin(esqArbin(arv)) + contaFolhaArbin(dirArbin(arv));
+  }
+  
+  int numOcorrenciasArbin(Arbin arv, int elem){ //conta elementos na árvore -> O(n)
+    if(isVazia(arv))
+      return 0;
+    else if(raizArbin(arv) == elem)
+      return 1 + numOcorrenciasArbin(esqArbin(arv), elem) + numOcorrenciasArbin(dirArbin(arv), elem);
+    else
+      return numOcorrenciasArbin(esqArbin(arv), elem) + numOcorrenciasArbin(dirArbin(arv), elem);
+  }
+  
+  Caminhamento em árvore binária
+    + Pre-ordem
+    + In-ordem
+    + Pos-ordem
+    + Niveis
+    
+    void preOrdem(Arbin arv){
+      if(!isVazia(arv)){
+        visitaRaiz(arv);
+      }
+    }
+  
+  
