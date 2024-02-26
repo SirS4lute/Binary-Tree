@@ -7,20 +7,20 @@ Binary Tree - Cost Log(n):
 Root node, with subtrees as children
           -
          ( ) Root node
-        / \
-      ( ) ( ) Subtrees / Branch
-     / \
-   ( ) ( ) No branch
-            \
-            ( ) Leaf node
+         / \
+       ( ) ( ) Subtrees / Branch
+       /     \
+     ( )     ( ) Branch node
+               \
+               ( ) Leaf node
     
 Each node has 0, 1 or 2 children
        -
       (R) Root node
-     / \
-   (E) (D) Subtrees
-    | \Right son
-    \Left child
+      / \
+    (E) (D) Subtrees
+     |    \Right child
+     \Left child
 ```
 
 ## Characteristics of a binary tree
@@ -36,8 +36,8 @@ Complete Binary Tree is when the internal elements (branches and not leaves) hav
 Full and balanced tree
      -
     (R) Level 0
-   / \
- (E) (D) Level 1
+    / \
+  (E) (D) Level 1
 ```
 
 Tree height is the number of nodes in the longest path, number of elements is (n = 2^h -1):
@@ -53,14 +53,14 @@ n = 3 -> Number of elements in the tree
   * The number of comparisons in a binary tree is equal to its height, but there are different cases depending on the tree
 ```
   _log(n)_ ​​=> because the tree is binary
-     two
+     2
   In other words, the base (2) raised to a number (x) which results in the number of elements in the tree (n)
   
   _log(7)_ => 7 = 2^x = 2.65
-     two
+     2
   
   _log(8)_ => 8 = 2^x = 3
-     two
+     2
     
   floor[2,65] = 2 //use in binary tree
   ceiling[2.65] = 3
@@ -72,11 +72,11 @@ The worst case number of comparisons is twice the height of the tree, with the h
 ```
 Tree sorting // Search tree
             --
-           (20) -> 0
-          / \
-      (10) (30) -> 1
-      / \ / \
-    (5) (15)(25) (35) -> 2
+           (20)  -> 0
+          /    \
+      (10)      (30) -> 1
+      /  \      /  \
+    (5)  (15)(25)  (35) -> 2
              /
           (22) -> 3
 ```
