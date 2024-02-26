@@ -1,4 +1,4 @@
-# Binary Tree - Definition 🇺🇸
+# Binary Tree - Definition - 🇺🇸
 A binary tree is a non-linear tree-like data structure with at most two children for each parent.
 Each node in a binary tree has a left and right reference along with the data element. The node at the top of a tree line is called the root node
 
@@ -138,7 +138,7 @@ Tree sorting // Search tree
 All the content in this repository dates back to my time at college, the theoretical material mostly comes from professors (that's why I give them credit here),
 with some of my writings. The code found here is entirely __my own__.
 
-# Árvore Binária - Definição 🇧🇷
+# Árvore Binária - Definição - 🇧🇷
 Uma árvore binária é uma estrutura de dados não linear do tipo árvore com no máximo dois filhos para cada pai. 
 Cada nó em uma árvore binária possui uma referência esquerda e direita junto com o elemento de dados. O nó no topo da hierarquia de uma árvore é chamado de nó raiz
 
